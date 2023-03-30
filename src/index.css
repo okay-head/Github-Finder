@@ -89,6 +89,7 @@
   line-height: 1.1rem;
 }
 .card p#card-bio {
+  overflow: hidden;
   height: 88px;
   text-align: left;
 }

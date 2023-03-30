@@ -11,7 +11,7 @@ export default function ResultPage() {
 
   const search_key = localStorage.getItem('key')
   const url = `https://api.github.com/search/users?q=${search_key}&per_page=8`
-  console.log('Request url: ',url)
+  // console.log('Request url: ',url)
   useEffect(() => {
     fetch(url,{
       headers: {

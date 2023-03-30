@@ -1,4 +1,4 @@
-import Card from "../Card"
+// import Card from "../Card"
 import Card2 from '../Card2'
 import { useState, useEffect } from "react"
 export default function RenderCards({ results }) {
@@ -26,7 +26,7 @@ export default function RenderCards({ results }) {
   // fetch individual profile information and store them in an array
   useEffect(() => {
     results.items.map((element, i) => {
-  console.log('Request url: ',element.url)
+  // console.log('Request url: ',element.url)
       fetch(`${element.url}`)
         .then(res => {
           if (!res.ok) throw new Error('error fetching github url data')

@@ -8,7 +8,7 @@ export default function Card({ props, index }) {
       return str.slice(0, 188) + '...'
     return str
   }
-  const cardBio = padFunction(props.bio)
+  const cardBio = padFunction(props.bio  || 'No bio available')
 
   return (
     <div className="card" onClick={() => { window.open(`${props.html_url}`, '_blank') }}>
@@ -28,7 +28,7 @@ export default function Card({ props, index }) {
         <h3>{props.name || 'Name'}</h3>
         <h4 className="gray">@{props.login || 'Username'}</h4>
         <h5 className="light">{props.location || 'Location'}</h5>
-        <p id="card-bio">{cardBio || 'No bio available'}</p>
+        <p id="card-bio">{cardBio}</p>
       </div>
 
       <div className="row2 row">

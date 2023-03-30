@@ -1,0 +1,66 @@
+@import "variables";
+
+.card {
+	// temporary
+	// margin: 5em;
+	cursor: pointer;
+	// flex-shrink: 0;
+
+	//
+	flex-shrink: 0;
+	margin: 2em 2em 2em 0;
+	color: $white;
+	// background-color: white;
+	// color: black;
+	width: 270px;
+	height: 330px;
+	text-align: center;
+	border-radius: 10px;
+	box-shadow: 1px 1px 5px $background2;
+	overflow: hidden;
+	padding: 1em 1.5em;
+	transition: background 0.7s ease, color 0.7s ease, transform 0.7s ease;
+	// transition: background 0.4s ease, transform 0.4s ease;
+
+	&:hover {
+	background-color: $white;
+	color: black;
+		transform: perspective(1px) translateZ(0);
+		transform: scale(1.035);
+		h5 {
+			transform: translateY(0);
+			opacity: 1;
+		}
+	}
+	.row2 {
+		margin-top: 0.5em;
+		// display: grid;
+		// grid-auto-columns: minmax(0, 1fr);
+		// grid-auto-flow: column;
+		display: flex;
+		justify-content: space-between;
+	}
+	img {
+		width: 40%;
+		border-radius: 50%;
+	}
+	p {
+    margin: 0.5em auto;
+		font-size: 0.85em;
+		line-height: 1.1rem;
+	}
+	p#card-bio {
+    height: 88px;
+		text-align: left;
+	}
+	h4 {
+		font-size: 0.83rem;
+	}
+	h5 {
+		margin: -2px auto -4px auto;
+		font-size: 0.75rem;
+		transform: translateY(-10px);
+		opacity: 0;
+		transition: opacity 0.6s ease, transform 0.6s ease;
+	}
+}

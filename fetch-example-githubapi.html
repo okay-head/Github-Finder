@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      background-color: rgba(0, 0, 0, 0.724);
+      display: flex;
+      justify-content: space-evenly;
+      /* height: 100vh; */
+      margin-top: 30%;
+    }
+
+    button {
+      padding: 2em;
+      display: block;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="prev-btn">PREV PAGE</button>
+  <button id="next-btn">NEXT PAGE</button>
+  <div id="content">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nobis explicabo asperiores dolorum eum sed architecto beatae rerum totam ipsum! Totam magnam dolorum molestias repellendus nisi minima impedit, porro ex est.</div>
+  <script>
+    'use strict'
+    const next_btn = document.getElementById('next-btn')
+    const prev_btn = document.getElementById('prev-btn')
+    const url = 'https://api.github.com/search/users?q=abcdefu&per_page=9'
+    let rpp = 9 //result_per_page
+    let page = 1  //global page var/state
+    /* Github api limits the request to 10/min or 30/min for authenticated users */
+    let total_count = 0
+
+    fetch(url)
+      .then(res => {
+        if (!res.ok) throw new Error('Panik')
+        return res.json()
+      })
+      .then(res => {
+        console.log(res.items[1])  //render function
+        return res
+      }).then((res) => {
+        total_count = res.total_count
+        console.log('page rendered!')
+        // this wont be a problem since the next btn will only become clickable after the page renders
+      })
+
+    next_btn.addEventListener('click', () => getMoreResults(true))  // true for forward
+    prev_btn.addEventListener('click', () => getMoreResults(false)) // false for backward
+
+    function getMoreResults(flag) {
+      if(flag){ // for next
+        if (total_count < rpp ) { 
+          console.log('End of results') 
+          return
+        }
+        total_count-=rpp
+      }else{
+        if(page==1){
+          console.log('Already on the first page!');  // disable prev button
+          return
+        }
+        total_count+=rpp
+      }
+      let fetch_url = flag? `${url}&page=${++page}` : `${url}&page=${--page}`
+      fetch(fetch_url)
+        .then(res => res.json())
+        .then(res => console.log(res))  //render function
+    }
+
+
+  </script>
+</body>
+
+</html>

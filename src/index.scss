@@ -1,0 +1,173 @@
+/* body{
+  background-color: rgba(0, 0, 0, 0.587);
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+ */
+
+// @use "card";
+@use "card2";
+@import "./variables";
+
+* {
+	margin: 0;
+	box-sizing: border-box;
+}
+
+/* utility classes*/
+.gray {
+	color: $dark-gray;
+}
+.light {
+	color: $background2;
+	font-weight: bold;
+}
+.flex {
+	display: flex;
+}
+/* --------------*/
+
+body {
+	background-color: $background;
+	// font-family: 'Nanum Gothic', sans-serif;
+	font-family: "Lato", sans-serif;
+	color: $white;
+	font-size: 16px;
+	line-height: 1.25rem;
+}
+
+nav {
+	display: flex;
+	justify-content: flex-end;
+	background-color: $dark;
+	padding: 0 $padding;
+	font-size: 1.15rem;
+	a {
+		color: $white;
+		margin: 2.4rem 0rem;
+		text-decoration: none;
+		&:hover {
+			text-shadow: 0 0 12px $background2, 0 0 14px $background2;
+		}
+	}
+	a:nth-child(3) {
+		margin-left: 1.3rem;
+	}
+}
+
+.title {
+	font-family: "Poppins", sans-serif;
+	font-size: 1.38em;
+	margin-right: auto;
+	font-weight: 900;
+}
+
+button {
+	cursor: pointer;
+}
+
+.search {
+	margin: 25vh auto auto 5em;
+	font-family: inherit;
+	// width: max-content;
+
+	.search-bar {
+		display: inline-flex;
+	}
+	input {
+		width: clamp(230px, 50vw, 450px);
+		padding: 0.7em 1.2em;
+		&:focus {
+			// box-shadow: 0 0 0 3px $background2;
+			outline: none;
+		}
+	}
+	button {
+		padding: 0.7em 2em;
+		background-color: $gray;
+		font-weight: 900;
+	}
+	.box-shadow {
+		box-shadow: 0 0 0 3px $background2;
+	}
+	#btn-2 {
+		margin-left: 2em;
+		background-color: $dark;
+		color: $white;
+	}
+	.btn-disabled {
+		color: inherit !important;
+		background-color: $dark-gray !important;
+		cursor: not-allowed;
+	}
+	input,
+	button {
+		font-size: 1.05rem;
+		border: none;
+		border-radius: 2px;
+		font-family: inherit;
+		// height: 38px;
+	}
+}
+
+.results-pg {
+	margin: 2em 6em;
+	h2 {
+		margin: 2em 0 0.8em 0;
+		font-size: 1.7em;
+	}
+	.cards {
+		margin-top: 1em;
+		display: flex;
+		flex-flow: row wrap;
+		justify-content: space-between;
+	}
+}
+.justify-none {
+	justify-content: none !important;
+}
+
+.loader {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -40%);
+	width: 60%;
+	height: 100%;
+	background: url(./../assets/Spinner-1.9s-217px2.svg) 50% 35% no-repeat;
+	background-size: 20%;
+	z-index: 10;
+}
+form{
+	position: relative;
+}
+/* Alert box */
+.alert {
+	position: absolute;
+	top: -110%;
+	left: 0;
+	width: 250px;
+	padding: 0.5em 1em;
+	color: $dark;
+	font-weight: 100;
+	font-size: 0.73em;
+	opacity: 0;
+	transition: 0.3s opacity;
+}
+
+.fade-in{
+	opacity: 1;
+}
+
+@mixin alert($name, $bgColor) {
+	$accentColor: darken($bgColor, 50);
+	.#{$name} {
+		background-color: #{$bgColor};
+		border-left: 5px solid $accentColor;
+		.close {
+			border-color: $accentColor;
+			color: $accentColor;
+		}
+	}
+}
+
+@include alert(danger-alert, #f7a7a3);

@@ -1,0 +1,263 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+/* body{
+  background-color: rgba(0, 0, 0, 0.587);
+  font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+ */
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
+.card {
+  position: relative;
+  flex-shrink: 0;
+  margin: 2em 2em 2em 0;
+  color: #fefefb;
+  width: 280px;
+  height: 375px;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #4aa497;
+  overflow: hidden;
+  padding: 2em 1.5em;
+  cursor: pointer;
+}
+.card .card-cover {
+  overflow: hidden;
+  background-color: #fefefb;
+  color: #6f6f6f;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 10;
+  transition: 0.5s;
+  height: 0;
+  padding: 0;
+}
+.card .card-cover img,
+.card .card-cover h3,
+.card .card-cover h4 {
+  transform: scale(0);
+  transition: 0.5s;
+}
+.card .card-cover img {
+  width: 50%;
+}
+.card .card-cover h4 {
+  color: #010c16;
+  margin-top: 4.5rem;
+  margin-right: 1.4em;
+  font-size: 1.5rem;
+}
+.card .card-cover h4 span {
+  position: relative;
+  margin-bottom: 0.3em;
+  display: block;
+}
+.card .card-cover h4 span svg {
+  width: 10%;
+  position: absolute;
+  top: -20%;
+  right: 27%;
+}
+.card:hover .card-cover {
+  height: 100%;
+  padding: 3em 0;
+}
+.card:hover img,
+.card:hover h3,
+.card:hover h4 {
+  transform: scale(1);
+}
+.card:hover h4 {
+  opacity: 1;
+}
+.card .row2 {
+  margin-top: 0.5em;
+  display: flex;
+  justify-content: space-between;
+}
+.card img {
+  width: 40%;
+  border-radius: 50%;
+}
+.card p {
+  margin: 0.5em auto 0.3em auto;
+  font-size: 0.85em;
+  line-height: 1.1rem;
+}
+.card p#card-bio {
+  height: 88px;
+  text-align: left;
+}
+.card h3 {
+  margin-top: 0.5rem;
+}
+.card h4 {
+  font-size: 0.83rem;
+}
+.card h5 {
+  margin: -2px auto 2px auto;
+  font-size: 0.75rem;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* utility classes*/
+.gray {
+  color: #6f6f6f;
+}
+
+.light {
+  color: #4aa497;
+  font-weight: bold;
+}
+
+.flex {
+  display: flex;
+}
+
+/* --------------*/
+body {
+  background-color: #121f2d;
+  font-family: "Lato", sans-serif;
+  color: #fefefb;
+  font-size: 16px;
+  line-height: 1.25rem;
+}
+
+nav {
+  display: flex;
+  justify-content: flex-end;
+  background-color: #010c16;
+  padding: 0 3rem;
+  font-size: 1.15rem;
+}
+nav a {
+  color: #fefefb;
+  margin: 2.4rem 0rem;
+  text-decoration: none;
+}
+nav a:hover {
+  text-shadow: 0 0 12px #4aa497, 0 0 14px #4aa497;
+}
+nav a:nth-child(3) {
+  margin-left: 1.3rem;
+}
+
+.title {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.38em;
+  margin-right: auto;
+  font-weight: 900;
+}
+
+button {
+  cursor: pointer;
+}
+
+.search {
+  margin: 25vh auto auto 5em;
+  font-family: inherit;
+}
+.search .search-bar {
+  display: inline-flex;
+}
+.search input {
+  width: clamp(230px, 50vw, 450px);
+  padding: 0.7em 1.2em;
+}
+.search input:focus {
+  outline: none;
+}
+.search button {
+  padding: 0.7em 2em;
+  background-color: #9e9e9e;
+  font-weight: 900;
+}
+.search .box-shadow {
+  box-shadow: 0 0 0 3px #4aa497;
+}
+.search #btn-2 {
+  margin-left: 2em;
+  background-color: #010c16;
+  color: #fefefb;
+}
+.search .btn-disabled {
+  color: inherit !important;
+  background-color: #6f6f6f !important;
+  cursor: not-allowed;
+}
+.search input,
+.search button {
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 2px;
+  font-family: inherit;
+}
+
+.results-pg {
+  margin: 2em 6em;
+}
+.results-pg h2 {
+  margin: 2em 0 0.8em 0;
+  font-size: 1.7em;
+}
+.results-pg .cards {
+  margin-top: 1em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.justify-none {
+  justify-content: none !important;
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -40%);
+  width: 60%;
+  height: 100%;
+  background: url(./../assets/Spinner-1.9s-217px2.svg) 50% 35% no-repeat;
+  background-size: 20%;
+  z-index: 10;
+}
+
+form {
+  position: relative;
+}
+
+/* Alert box */
+.alert {
+  position: absolute;
+  top: -110%;
+  left: 0;
+  width: 250px;
+  padding: 0.5em 1em;
+  color: #010c16;
+  font-weight: 100;
+  font-size: 0.73em;
+  opacity: 0;
+  transition: 0.3s opacity;
+}
+
+.fade-in {
+  opacity: 1;
+}
+
+.danger-alert {
+  background-color: #f7a7a3;
+  border-left: 5px solid #8f130c;
+}
+.danger-alert .close {
+  border-color: #8f130c;
+  color: #8f130c;
+}/*# sourceMappingURL=index.css.map */

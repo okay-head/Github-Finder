@@ -1,5 +1,5 @@
 ### Search github users by their name / username
-https://okay-head-github-finder.netlify.app/
+[Site](https://okay-head-github-finder.netlify.app/)
 
 
 

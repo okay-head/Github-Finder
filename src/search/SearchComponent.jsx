@@ -18,7 +18,7 @@ export default function SearchComponent() {
       alertBox.classList.add('fade-in')
       setTimeout(() => {
         alertBox.classList.remove('fade-in')
-      },1000);
+      },1300);
       return
     }
     const key = document.getElementById('input-box').value
